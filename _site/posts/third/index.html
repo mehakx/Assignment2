@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Episode 3 – Designing Authenticity | Designing Authenticity</title>
+    <meta name="description" content="Exploring authenticity in technology and design" />
+
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root{
+        --bg: #0f1115;
+        --bg-soft:#131622;
+        --card:#141824;
+        --text:#e9ecf1;
+        --muted:#9aa3b2;
+        --border: rgba(255,255,255,0.08 );
+        --accent:#7aa2ff;
+        --accent-2:#a07bff;
+        --radius: 16px;
+        --shadow: 0 10px 35px rgba(0,0,0,0.35);
+
+        main img {
+  max-width: 40%;
+  height: auto;
+  border-radius: 12px;
+  margin: 30px 0;
+  box-shadow: var(--shadow);
+}
+      }
+
+      
+      @media (prefers-color-scheme: light){
+        :root{
+          --bg:#f7f8fb;
+          --bg-soft:#ffffff;
+          --card:#ffffff;
+          --text:#11131a;
+          --muted:#5b6575;
+          --border: rgba(0,0,0,0.08);
+          --accent:#3b82f6;
+          --accent-2:#8b5cf6;
+          --shadow: 0 12px 30px rgba(16,24,40,0.08);
+        }
+      }
+
+      *{box-sizing:border-box}
+      html,body{height:100%}
+      body{
+        margin:0;
+        font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,Helvetica,sans-serif;
+        color:var(--text);
+        background:
+          radial-gradient(1200px 800px at 90% -10%, rgba(122,162,255,0.08), transparent 50%),
+          radial-gradient(900px 700px at -10% 0%, rgba(160,123,255,0.10), transparent 50%),
+          var(--bg);
+        line-height:1.6;
+        min-height:100vh;
+        display:flex;
+        flex-direction:column;
+      }
+
+      /* Header */
+      header{
+        position: relative;
+        overflow: hidden;
+        border-bottom:1px solid var(--border);
+        background:
+          radial-gradient(1200px 300px at 50% -40%, rgba(122,162,255,0.18), transparent 60%),
+          linear-gradient(180deg, var(--bg-soft), transparent 70%);
+      }
+      .wrap{max-width:980px; margin:0 auto; padding:0 20px;}
+      .header-inner{
+        display:flex; align-items:center; justify-content:space-between;
+        padding:28px 0;
+      }
+      .brand{
+        display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text);
+      }
+      .logo{
+        width:36px; height:36px; border-radius:12px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        box-shadow: 0 6px 18px rgba(59,130,246,0.35);
+        display:flex; align-items:center; justify-content:center;
+        font-weight:700; color:white; font-size:1.2rem;
+      }
+      .brand h1{
+        font-size:1.15rem; font-weight:700; letter-spacing:0.2px; margin:0;
+      }
+
+      nav{
+        display:flex; gap:8px; align-items:center;
+      }
+      nav a{
+        color:var(--text);
+        text-decoration:none;
+        font-weight:500;
+        padding:8px 12px;
+        border-radius:10px;
+        transition: all 0.2s ease;
+        font-size:0.9rem;
+      }
+      nav a:hover{
+        background: var(--border);
+        color: var(--accent);
+      }
+      nav a.active{
+        background: var(--accent);
+        color: white;
+      }
+
+      /* Main Content */
+      main{
+        flex: 1;
+        padding: 40px 0;
+      }
+
+      /* Hero Section */
+      .hero{
+        text-align: center;
+        padding: 60px 0 80px;
+        position: relative;
+      }
+      .hero h1{
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin: 0 0 20px;
+        background: linear-gradient(135deg, var(--text), var(--muted));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.1;
+      }
+      .hero p{
+        font-size: 1.2rem;
+        color: var(--muted);
+        max-width: 600px;
+        margin: 0 auto 40px;
+      }
+
+      /* Card Grid */
+      .grid{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 24px;
+        margin: 40px 0;
+      }
+      .card{
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 28px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+        box-shadow: var(--shadow);
+      }
+      .card:hover{
+        transform: translateY(-4px);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+        border-color: var(--accent);
+      }
+      .card h3{
+        margin: 0 0 12px;
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: var(--text);
+      }
+      .card p{
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+      .card-meta{
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 16px;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+      .chapter-number{
+        background: var(--accent);
+        color: white;
+        padding: 4px 8px;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 0.75rem;
+      }
+
+      /* Footer */
+      footer{
+        border-top: 1px solid var(--border);
+        padding: 40px 0;
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px){
+        .header-inner{
+          flex-direction: column;
+          gap: 20px;
+          text-align: center;
+        }
+        nav{
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        .hero h1{
+          font-size: 2.5rem;
+        }
+        .hero p{
+          font-size: 1.1rem;
+        }
+        .grid{
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <div class="header-inner">
+          <a href="/" class="brand">
+            <div class="logo">D</div>
+            <h1>Designing Authenticity</h1>
+          </a>
+          <nav>
+            <a href="/">Home</a>
+        
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="wrap">
+        <p>In an era where everything feels performative and curated, where social media rewards the most polished versions of ourselves, and where algorithms amplify what gets engagement over what feels genuine—how do we remain authentic? We live in times that seem to systematically reward inauthenticity, where being real can feel like a competitive disadvantage.</p>
+<p>The challenge isn't just external pressure to perform, but internal confusion about what authenticity even means. When our desires are culturally conditioned, when we've adapted to &quot;baseline normals&quot; that feel wrong, when we can't articulate what's missing—how do we find that deep thing in us that feels truly ours? Authenticity in inauthentic times requires stripping back the layers of what we think we should want to discover what we actually need.</p>
+<p>What would it look like to live authentically in a world designed to make us perform?</p>
+<p><img src="/posts/connection.jpg" alt="This image black and white"></p>
+
+      </div>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <p>&copy; 2024 Designing Authenticity. Exploring authenticity in technology and design.</p>
+      </div>
+    </footer>
+  </body>
+</html>
